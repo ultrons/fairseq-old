@@ -189,9 +189,7 @@ def train_loop_fn (model, loader, device='cpu?', context=None):
         xm.optimizer_step(optimizer)
 
 # Print some samples from train_loader
-for i in train_loader:
-    print(i)
-    break
+print(next(train_loader))
 
 
 # Run training from one epoch

@@ -182,8 +182,7 @@ def train_loop_fn (model, loader, device='cpu?', context=None):
     criterion = task.build_criterion(args)
     tracker = xm.RateTracker()
     optimizer=build_optimizer(args, model)
-    for i, samples in enumerate(loader):
-        print (samples[0])
+    for i, samples in loader:
         print("Processing minibatch:%d" %i)
         task.train_step(samples[0], model, criterion, optimizer,False)
         xm.optimizer_step(optimizer)
